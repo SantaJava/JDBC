@@ -31,3 +31,9 @@ INCREMENT BY 1;
 
 
 SELECT*FROM GOODSINFO;
+
+SELECT*
+FROM (
+	SELECT row_number() over(order by code) as seq, code, name, price, maker	
+	FROM goodsinfo)
+WHERE seq BETWEEN 6 AND 10;
